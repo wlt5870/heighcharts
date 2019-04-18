@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>第一个 Highcharts 图表</title>
+</head>
+<body>
+<!-- 图表容器 DOM -->
+<div id="container" style="width: 600px;height:400px;"></div>
+<div id="container2" style="width: 600px;height:400px;"></div>
+<div id="container3" style="width: 600px;height:400px;"></div>
+<div id="container4" style="width: 600px;height:400px;"></div>
+<div id="container5" style="width: 600px;height:400px;"></div>
+<div id="container6" style="width: 600px;height:400px;"></div>
+<div id="container7" style="width: 600px;height:400px;"></div>
+<!-- 引入 highcharts.js -->
+<script src="https://code.highcharts.com.cn/jquery/jquery-1.8.3.min.js"></script>
+<script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+<script src="https://code.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+<script src="https://code.highcharts.com.cn/highcharts/modules/data.js"></script>
+<script src="https://code.highcharts.com.cn/highcharts/modules/series-label.js"></script>
+<script src="https://code.highcharts.com.cn/highcharts/modules/oldie.js"></script>
+<script src="https://code.highcharts.com.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+<script>
+    // var chart = null;
+    // 获取 CSV 数据并初始化图表
+    //
+    // 全局配置，针对页面上所有图表有效
+    Highcharts.setOptions({
+        chart: {
+            backgroundColor: {
+                linearGradient: [0, 0, 500, 500],
+                stops: [
+                    [0, 'rgb(255, 255, 255)'],
+                    [1, 'rgb(240, 240, 255)']
+                ]
+            },
+            borderWidth: 2,
+            plotBackgroundColor: 'rgba(255, 255, 255, .9)',
+            plotShadow: true,
+            plotBorderWidth: 1
+        },
+        tooltip:{
+            shared: true,
+            useHTML: true
+        },
+        credits : {
+            enabled :false
+        }
+    });
+    var options = {
+        chart: {
+            renderTo: 'container',
+            type: 'line'
+        },
+        series: [{
+            name: '小明',
+            data: [1, 0, 4]
+        },
+            {
+                name: '小h',
+                data: [3, 2, 5]
+            }]
+    }
+    var options2 = {
+        chart: {
+            renderTo: 'container2',
+            type: 'line'
+        },
+        series: [{
+            name: '小明',
+            data: [1, 0, 4]
+        },
+            {
+                name: '小h',
+                data: [3, 2, 5]
+            }]
+    }
+    var options3 = {
+        chart: {
+            type: 'column'
+        },
+
+        xAxis: {
+            type: 'datetime'
+        },
+
+        series: [{
+            data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
+            pointStart: Date.UTC(2010, 0, 1),
+            pointInterval: 1000 // one hour
+        }]
+    };
+    var options4 = {
+        xAxis: {
+            type: 'datetime'
+        },
+
+        series: [{
+            data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
+            pointStart: Date.UTC(2010, 0, 1),
+            pointInterval: 1000 // one hour
+        }]
+    };
+    var chart = Highcharts.chart('container', options);
+    var chart = Highcharts.chart('container2', options2);
+    var chart = Highcharts.chart('container3', options3);
+    var chart = Highcharts.chart('container4', options4);
+</script>
+</body>
+</html>
